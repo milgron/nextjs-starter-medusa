@@ -77,7 +77,7 @@ export const StoreProvider = ({ children }) => {
       });
     }
 
-    client.products.list().then(({ data }) => {
+    client.products.list().then((data) => {
       dispatch({ type: "setProducts", payload: data.products });
     });
   }, []);

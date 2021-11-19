@@ -142,7 +142,7 @@ const client = createClient();
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get products
-  const { data } = await client.products.list();
+  const data = await client.products.list();
   const products = data.products;
 
   // Get the paths we want to pre-render based on the products
@@ -159,7 +159,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // params contains the product `id`.
   // If the route is like /product/prod_1, then params.id is 1
-  const { data } = await client.products.retrieve(params.id);
+  const data = await client.products.retrieve(params.id);
 
   // Pass post data to the page via props
   return { props: { product: data.product } };
