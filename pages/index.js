@@ -30,7 +30,7 @@ export default function Home({ products }) {
             </div>
             <a
               href="https://www.medusa-commerce.com/"
-              arget="_blank"
+              target="_blank"
               rel="noreferrer"
               role="button"
             >
