@@ -10,6 +10,26 @@ export const formatPrice = (price, currency) => {
   return `${(price / 100).toFixed(2)} ${currency.toUpperCase()}`;
 };
 
+export const getLowerPrice = (variants) => {
+  var lowest_price = 0
+  var selected = null
+
+  variants.forEach(option => {
+    if(lowest_price == 0) {
+      lowest_price = option.prices[0].amount
+      selected = option
+    } 
+    if(option.prices[0].amount < lowest_price) {
+      lowest_price = option.prices[0].amount
+      selected = option
+    } 
+  })
+
+  const formated_price = formatPrice(selected.prices[0].amount, selected.prices[0].currency_code)
+
+  return formated_price
+}
+
 export const getSlug = (path) => {
   const tmp = path.split("/");
   return tmp[tmp.length - 1];
