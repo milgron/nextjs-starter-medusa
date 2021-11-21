@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "title": "Basic T-Shirt",
         "subtitle": null,
         "description": "Reimagine the feeling of a classic T-shirt. With our men's Basic cotton T-shirts, everyday essentials no longer have to be ordinary.",
@@ -73,6 +73,263 @@
             "options": [
                 {
                 "value": "XL"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Basic T-Shirt II",
+        "subtitle": null,
+        "description": "Reimagine the feeling of a classic T-shirt. With our men's Basic cotton T-shirts, everyday essentials no longer have to be ordinary, but in another color.",
+        "handle": "basic-shirt-ii",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/tshirt2.svg",
+        "options": [
+            {
+            "title": "Size"
+            }
+        ],
+        "variants": [
+            {
+            "title": "S",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1950
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "M",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1950
+                }
+            ],
+            "options": [
+                {
+                "value": "M"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "L",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1950
+                }
+            ],
+            "options": [
+                {
+                "value": "L"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "XL",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1950
+                }
+            ],
+            "options": [
+                {
+                "value": "XL"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Phone case",
+        "subtitle": null,
+        "description": "An amazing phone case for using to protect your great phone.",
+        "handle": "phone-case",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/phone-case.svg",
+        "options": [
+            {
+            "title": "Size"
+            }
+        ],
+        "variants": [
+            {
+            "title": "5 inch",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1200
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "6 inch",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1300
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Tote",
+        "subtitle": null,
+        "description": "Shopping? Vegetables? Just go with your great tote!",
+        "handle": "tote",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/tote.svg",
+        "options": [
+            {
+            "title": "Size"
+            }
+        ],
+        "variants": [
+            {
+            "title": "20cm",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 800
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "30cm",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 900
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "title": "Cap",
+        "subtitle": null,
+        "description": "Protect your sking with fashion.",
+        "handle": "cap",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/cap.svg",
+        "options": [
+            {
+            "title": "Diameter"
+            }
+        ],
+        "variants": [
+            {
+            "title": "20cm",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 3000
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "22cm",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 3000
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "title": "Water bottle",
+        "subtitle": null,
+        "description": "Carry water, stay fresh!",
+        "handle": "water-bottle",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/water-bottle.svg",
+        "options": [
+            {
+            "title": "Liters"
+            }
+        ],
+        "variants": [
+            {
+            "title": "600cm3",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 3000
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "1000cm3",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 3000
                 }
             ],
             "inventory_quantity": 100,
