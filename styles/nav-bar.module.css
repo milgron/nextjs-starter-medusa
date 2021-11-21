@@ -1,10 +1,6 @@
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 88px;
-  position: absolute;
-  width: 100%;
+  @apply flex relative items-center;
+  padding: 20px 10px;
   z-index: 10;
 }
 
@@ -15,6 +11,10 @@
 .logo {
   font-size: var(--fz-xl);
   color: var(--logo-color-900);
+}
+
+.navbarLogo {
+  @apply absolute left-0 right-0 mx-auto;
 }
 
 .btn {
