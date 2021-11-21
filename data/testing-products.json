@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "title": "Basic T-Shirt",
+        "subtitle": null,
+        "description": "Reimagine the feeling of a classic T-shirt. With our men's Basic cotton T-shirts, everyday essentials no longer have to be ordinary.",
+        "handle": "basic-shirt",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/tshirt.svg",
+        "options": [
+            {
+            "title": "Size"
+            }
+        ],
+        "variants": [
+            {
+            "title": "S",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1950
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "M",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1950
+                }
+            ],
+            "options": [
+                {
+                "value": "M"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "L",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1950
+                }
+            ],
+            "options": [
+                {
+                "value": "L"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            },
+            {
+            "title": "XL",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "amount": 1950
+                }
+            ],
+            "options": [
+                {
+                "value": "XL"
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            }
+        ]
+    }
+]
