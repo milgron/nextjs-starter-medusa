@@ -30,6 +30,16 @@ export const getLowerPrice = (variants) => {
   return formated_price
 }
 
+export const getMockProducts = (mockDataPath) => {
+  let products = require(`../data/${mockDataPath}.json`)
+    
+  products.forEach(singleProduct => {
+      singleProduct.lower_price = getLowerPrice(singleProduct.variants)
+  })
+
+  return products
+}
+
 export const getSlug = (path) => {
   const tmp = path.split("/");
   return tmp[tmp.length - 1];

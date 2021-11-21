@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image"
 import { BiShoppingBag } from "react-icons/bi";
 import StoreContext from "../../context/store-context";
-import { formatPrice, resetOptions } from "../../utils/helper-functions";
+import { formatPrice, getMockProducts, resetOptions } from "../../utils/helper-functions";
 import styles from "../../styles/product.module.css";
 import { createClient } from "../../utils/client";
 import { formatPrices } from "../../utils/prices";
@@ -142,9 +142,11 @@ const client = createClient();
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get products
-  const data = await client.products.list();
-  const products = data.products;
+  // const data = await client.products.list();
+  // const products = data.products;
 
+  const products = getMockProducts('testing-products')
+  console.log(products)
   // Get the paths we want to pre-render based on the products
   const paths = products.map((product) => ({
     params: { id: product.id },
@@ -159,10 +161,15 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // params contains the product `id`.
   // If the route is like /product/prod_1, then params.id is 1
-  const data = await client.products.retrieve(params.id);
+  // const data = await client.products.retrieve(params.id);
+  let data = await getMockProducts('testing-products')
+
+  const [selectedData] = data.filter(eachProduct => {
+    if(eachProduct.id == params.id) return eachProduct
+  })
 
   // Pass post data to the page via props
-  return { props: { product: data.product } };
+  return { props: { product: selectedData } };
 }
 
 export default Product;

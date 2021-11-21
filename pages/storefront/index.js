@@ -1,7 +1,7 @@
 import React from 'react'
 import { GridSingleProduct } from '../../components/storefront/grid-single-product';
 import styles from "../../styles/storefront.module.css";
-import { getLowerPrice } from '../../utils/helper-functions';
+import { getMockProducts } from '../../utils/helper-functions';
 
 const Storefront = ({products}) => {
     return(
@@ -16,12 +16,8 @@ const Storefront = ({products}) => {
 }
 
 export const getStaticProps = async () => {
-    let products = require('../../data/testing-products.json')
-    
-    products.forEach(singleProduct => {
-        singleProduct.lower_price = getLowerPrice(singleProduct.variants)
-    })
-  
+    const products = await getMockProducts('testing-products')
+
     return {
       props: {
         products
