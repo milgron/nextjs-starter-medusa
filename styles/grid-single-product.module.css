@@ -1,8 +1,17 @@
 .product_card {
     background-color: #F7F7FA;
     border-radius: 5px;
+    height: 316px;
+    transition: all 500ms ease-in-out;
 
     @apply flex flex-col justify-end items-center rounded-md;
+}
+
+.product_card:hover {
+    transition: all 500ms ease-in-out;
+    transform: translateY(-2px);
+    background-color: #f7f7f7;
+    box-shadow: 3px 3px 10px rgba(215,215,215,0.75);
 }
 
 .product_image_wrapper {

@@ -10,18 +10,13 @@ export const GridSingleProduct = ({data}) => {
         >
             <a>
                 <div className={styles.product_card}>
-                    <div className={styles.product_image_wrapper}>
                         <Image
-                            objectFit="cover"
-                            height="100%"
-                            width="100%"
-                            priority={true}
-                            loading="eager"
-                            src={data.thumbnail}
                             className={styles.product_image}
-                            alt={`${data.title}`}
+                            src={data.thumbnail}
+                            width="185px"
+                            height="225px"
                         />
-                    </div>
+                        {/* <img className={styles.product_image} src={data.thumbnail} /> */}
                     <div className={styles.product_data_wrapper}>
                         <div className={styles.product_title_wrapper}>
                             <p className={styles.product_title}>{data.title}</p>
