@@ -102,26 +102,19 @@ export default function Home({ products }) {
           </div>
         </div>
         <div className={styles.products}>
-          <h2>Demo Products</h2>
           <div className={styles.grid}>
-            {products &&
-              products.map((p) => {
-                return (
-                  <div key={p.id} className={styles.card}>
-                    <Link
-                      href={{ pathname: `/product/[id]`, query: { id: p.id } }}
-                      passHref
-                    >
-                      <a>
-                        <div>
-                          <h2>{p.title}</h2>
-                          <p>{formatPrices(cart, p.variants[0])}</p>
-                        </div>
-                      </a>
-                    </Link>
-                  </div>
-                );
-              })}
+            <Link
+              href={{ pathname: '/storefront'}}
+              passHref
+            >
+              <a>
+                <div className={styles.store_front_button}>
+                  <span role="img" aria-label="Rocket emoji">
+                    🛍️ <span>Visit Demo Storefront</span>
+                  </span>
+                </div>
+              </a>
+            </Link>
           </div>
         </div>
       </main>

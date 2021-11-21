@@ -38,7 +38,6 @@
 
 .grid {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -146,6 +145,25 @@
   align-items: center;
   flex-wrap: nowrap;
   margin-bottom: 3rem;
+}
+
+.store_front_button {
+  background: #56FBB1;
+  font-size: 18px;
+  color: black;
+  border-radius: 5px;
+  min-width: 100px;
+  padding: 12px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 400ms ease-in;
+}
+
+.store_front_button:hover {
+  box-shadow: 3px 3px 3px rgba(103, 216, 122, 0.5);
+  background: #45cc8f;
+  transition: all 400ms ease-in-out;
 }
 
 @media (max-width: 876px) {
