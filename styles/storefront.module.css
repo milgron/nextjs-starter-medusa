@@ -1,0 +1,15 @@
+.container {
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.product_cards_grid {
+    @apply grid grid-cols-1;
+    grid-gap: 10.5px;
+}
+
+@media screen and (min-width: 920px) {
+    .product_cards_grid {
+        @apply grid grid-cols-4;
+    }
+}
