@@ -17,9 +17,9 @@ export const GridSingleProduct = ({data}) => {
                             width="100%"
                             priority={true}
                             loading="eager"
-                            src={product.thumbnail}
+                            src={data.thumbnail}
                             className={styles.product_image}
-                            alt={`${product.title}`}
+                            alt={`${data.title}`}
                         />
                     </div>
                     <div className={styles.product_data_wrapper}>
