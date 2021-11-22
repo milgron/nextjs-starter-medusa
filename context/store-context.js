@@ -125,7 +125,6 @@ export const StoreProvider = ({ children }) => {
 
   const deleteCartItem = async({index}) => {
     await dispatch({type: "deleteCartItem", payload: index})
-    console.log(state.cart)
   }
 
   const addVariantToCart = async ({options, product}) => {
