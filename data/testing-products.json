@@ -19,6 +19,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "ASDAS124142asfdasfasfxw345",
                 "amount": 1950
                 }
             ],
@@ -35,6 +36,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "dfsft34634563dfgdg",
                 "amount": 1950
                 }
             ],
@@ -51,6 +53,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "sdfahtyktyi6575757575",
                 "amount": 1950
                 }
             ],
@@ -67,6 +70,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "sdfgsgdsycvn567885648564657",
                 "amount": 1950
                 }
             ],
@@ -100,6 +104,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "asdffsadsdfa436346634346346",
                 "amount": 1950
                 }
             ],
@@ -116,6 +121,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "98346893456jiksdgjhksetg",
                 "amount": 1950
                 }
             ],
@@ -132,6 +138,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "fedgwstijwetjiwet983425893456",
                 "amount": 1950
                 }
             ],
@@ -148,6 +155,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "asdfkjasfnksfadmn1241258",
                 "amount": 1950
                 }
             ],
@@ -181,6 +189,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "983468934689634jdtsjgsd",
                 "amount": 1200
                 }
             ],
@@ -197,6 +206,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "253872537sdfhsdhf",
                 "amount": 1300
                 }
             ],
@@ -225,6 +235,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "sdafgsadfjhfajns2352353",
                 "amount": 800
                 }
             ],
@@ -241,6 +252,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "asfdasddasads1234412",
                 "amount": 900
                 }
             ],
@@ -253,7 +265,7 @@
         "id": "5",
         "title": "Cap",
         "subtitle": null,
-        "description": "Protect your sking with fashion.",
+        "description": "Protect your skin with fashion.",
         "handle": "cap",
         "is_giftcard": false,
         "images": [],
@@ -269,6 +281,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "adsadsads124142124",
                 "amount": 3000
                 }
             ],
@@ -285,6 +298,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "zxczxczxc1212",
                 "amount": 3000
                 }
             ],
@@ -313,6 +327,7 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "vbmfhdcbxc12341254",
                 "amount": 3000
                 }
             ],
@@ -321,7 +336,7 @@
                 "value": "S"
                 }
             ],
-            "inventory_quantity": 100,
+            "inventory_quantity": 15,
             "manage_inventory": true
             },
             {
@@ -329,10 +344,11 @@
             "prices": [
                 {
                 "currency_code": "eur",
+                "variant_id": "sdfsdfwf32523465",
                 "amount": 3000
                 }
             ],
-            "inventory_quantity": 100,
+            "inventory_quantity": 0,
             "manage_inventory": true
             }
         ]
