@@ -352,5 +352,235 @@
             "manage_inventory": true
             }
         ]
+    },
+    {
+        "id": "7",
+        "title": "Stickers",
+        "subtitle": null,
+        "description": "Amazing stickers, why not in your laptop back?",
+        "handle": "stickers",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/stickers.svg",
+        "options": [
+            {
+            "title": "Size"
+            }
+        ],
+        "variants": [
+            {
+            "title": "5cm",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "sdfsfdhuj23u1423",
+                "amount": 500
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 25,
+            "manage_inventory": true
+            },
+            {
+            "title": "10cm",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "sdfjnksdfji23",
+                "amount": 750
+                }
+            ],
+            "inventory_quantity": 0,
+            "manage_inventory": true
+            }
+        ]
+    },
+    {
+        "id": "8",
+        "title": "Sweatshirt",
+        "subtitle": null,
+        "description": "Forget about running sweatshirts, just wear medusa!",
+        "handle": "sweatshirt",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/sweatshirt.svg",
+        "options": [
+            {
+            "title": "Size"
+            }
+        ],
+        "variants": [
+            {
+            "title": "L",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "dfhfhd23235",
+                "amount": 4000
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 15,
+            "manage_inventory": true
+            },
+            {
+            "title": "XL",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "sdfdsfsd111",
+                "amount": 4000
+                }
+            ],
+            "inventory_quantity": 10,
+            "manage_inventory": true
+            }
+        ]
+    },
+    {
+        "id": "9",
+        "title": "Socks",
+        "subtitle": null,
+        "description": "Forget about cold in winter, just protect your feet with medusa socks!.",
+        "handle": "socks",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/socks.svg",
+        "options": [
+            {
+            "title": "Size"
+            }
+        ],
+        "variants": [
+            {
+            "title": "40",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "xcxvc12111",
+                "amount": 1000
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 15,
+            "manage_inventory": true
+            },
+            {
+            "title": "42",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "xcxvcvc11111",
+                "amount": 1000
+                }
+            ],
+            "inventory_quantity": 111,
+            "manage_inventory": true
+            }
+        ]
+    },
+    {
+        "id": "10",
+        "title": "Mug",
+        "subtitle": null,
+        "description": "Coffee, tea or why not icecream? Your everyday mug :)",
+        "handle": "mug",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/mug.svg",
+        "options": [
+            {
+            "title": "Color"
+            }
+        ],
+        "variants": [
+            {
+            "title": "Black",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "asfdasaaaa11",
+                "amount": 1500
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 15,
+            "manage_inventory": true
+            },
+            {
+            "title": "White",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "cvncnv3433",
+                "amount": 1500
+                }
+            ],
+            "inventory_quantity": 100,
+            "manage_inventory": true
+            }
+        ]
+    },
+    {
+        "id": "11",
+        "title": "Backpack",
+        "subtitle": null,
+        "description": "Wherever you go, we can be with you :)",
+        "handle": "backpack",
+        "is_giftcard": false,
+        "images": [],
+        "thumbnail": "/products/backpack.svg",
+        "options": [
+            {
+            "title": "Liters"
+            }
+        ],
+        "variants": [
+            {
+            "title": "20LTS",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "2344236kdkof",
+                "amount": 5000
+                }
+            ],
+            "options": [
+                {
+                "value": "S"
+                }
+            ],
+            "inventory_quantity": 15,
+            "manage_inventory": true
+            },
+            {
+            "title": "30LTS",
+            "prices": [
+                {
+                "currency_code": "eur",
+                "variant_id": "dvsvxcxcv2222",
+                "amount": 5000
+                }
+            ],
+            "inventory_quantity": 2356,
+            "manage_inventory": true
+            }
+        ]
     }
 ]
