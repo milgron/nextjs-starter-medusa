@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import styles from "../../styles/cart-view.module.css";
 import { quantity, sum, formatPrice } from "../../utils/helper-functions";
 import { formatPrices } from "../../utils/prices";
+import MedusaLogo from "../../public/medusa-logo.svg"
+
 
 const CartView = () => {
   const { cartView, updateCartViewDisplay, updateCheckoutStep } =
@@ -144,6 +146,9 @@ const CartView = () => {
         >
           Checkout
         </button>
+      </div>
+      <div className={styles.logoWrapper}>
+        <span className={styles.label}>Powered by</span> <Image src={MedusaLogo} height="25px" width="100%" alt="logo" className={styles.logo}/>
       </div>
     </div>
   );

@@ -22,6 +22,24 @@
   transform: translateX(110%);
 }
 
+.logoWrapper {
+  @apply my-4 flex justify-center relative;
+}
+
+.logoWrapper::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--main-blue);
+  top: -15px;
+}
+
+.label {
+  @apply mr-2;
+}
+
 .active {
   -webkit-transform: translateX(-460px);
   -ms-transform: translateX(-460px);
