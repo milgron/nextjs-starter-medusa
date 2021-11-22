@@ -6,6 +6,10 @@ export const sum = (prev, next) => {
   return prev + next;
 };
 
+export const getFixedPrice = (price) => {
+  return `${(price / 100).toFixed(2)}`
+}
+
 export const formatPrice = (price, currency) => {
   return `${(price / 100).toFixed(2)} ${currency.toUpperCase()}`;
 };
@@ -46,12 +50,14 @@ export const getSlug = (path) => {
 };
 
 export const resetOptions = (product) => {
-  const variantId = product.variants.slice(0).reverse()[0].id;
+  const {variant_id} = product.variants[0].prices[0];
   const size = product.variants.slice(0).reverse()[0].title;
+  const stock = product.variants.slice(0).reverse()[0].inventory_quantity
   return {
-    variantId: variantId,
+    variantId: variant_id,
     quantity: 1,
-    size: size,
+    size,
+    stock
   };
 };
 
