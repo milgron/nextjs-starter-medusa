@@ -4,6 +4,7 @@
   grid-template-columns: 1fr;
   color: var(--main-blue);
   height: calc(100vh - 60px);
+  overflow: hidden;
 }
 
 .placeholder {
@@ -202,7 +203,23 @@
 
 .informationWrapper.active {
   transition: transform 500ms ease-in-out;
+  transform: translateY(-150px);
+}
+
+.messageWrapper {
+  transform: translateY(600%);
+  transition: all 350ms ease-out;
+  border: 1px solid var(--main-blue);
+  @apply text-black rounded-md py-2 px-4 mx-4 w-full flex justify-center items-center;
+  height: 50px;
+  z-index: 1;
+}
+
+.messageWrapper.active {
   transform: translateY(0);
+  z-index: 2;
+  transition: all 350ms ease-in;
+  @apply mb-4;
 }
 
 @media (max-width: 876px) {

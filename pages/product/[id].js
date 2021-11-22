@@ -14,6 +14,8 @@ const Product = ({ product }) => {
     size: "",
   });
 
+  const [isMessageActive, setIsMessageActive] = useState(false)
+
   const [isDetailsOpen,setIsDetailsOpen] = useState(false)
 
   const handleDetailsClick = () => {
@@ -49,9 +51,13 @@ const Product = ({ product }) => {
   //   }
   // };
 
-  const handleAddToBag = () => {
+  const handleAddToBag = async () => {
     addVariantToCart({options,product});
     if (product) setOptions(resetOptions(product));
+    setIsMessageActive(true)
+    await setTimeout(() => {
+      setIsMessageActive(false)
+    }, 3500);
   };
 
   const handleVariantSelection = (event) => {
@@ -123,6 +129,9 @@ const Product = ({ product }) => {
               }
             </div>
           </div>
+        </div>
+        <div className={!isMessageActive ? styles.messageWrapper : `${styles.messageWrapper} ${styles.active}`}>
+          <span><strong>{product.title}</strong> added to bag 🛍️</span>
         </div>
       </div>
     </div>
