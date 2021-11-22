@@ -202,8 +202,8 @@
 }
 
 .informationWrapper.active {
+  transform: translateY(0);
   transition: transform 500ms ease-in-out;
-  transform: translateY(-150px);
 }
 
 .messageWrapper {
