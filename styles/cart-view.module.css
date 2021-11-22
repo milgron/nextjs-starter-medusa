@@ -40,6 +40,25 @@
   @apply mr-2;
 }
 
+.singleCartProductWrapper {
+  margin: 0 35px;
+  padding: 10px 0;
+  border-bottom: 1px solid gray;
+  @apply flex justify-between;
+}
+
+.priceAndTrashWrapper {
+  @apply flex;
+}
+
+.priceWrapper {
+  @apply mr-2;
+}
+
+.trash {
+  @apply text-red-500 cursor-pointer;
+}
+
 .active {
   -webkit-transform: translateX(-460px);
   -ms-transform: translateX(-460px);

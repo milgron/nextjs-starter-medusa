@@ -1,5 +1,6 @@
 import React, { useReducer, useEffect, useRef } from "react";
 import { createClient } from "../utils/client";
+import { formatPrice, getMockProducts, getFixedPrice } from "../utils/helper-functions";
 
 export const defaultStoreContext = {
   adding: false,
@@ -31,7 +32,27 @@ const reducer = (state, action) => {
       return {
         ...state,
         cart: action.payload,
-        currencyCode: action.payload.region.currency_code,
+        currencyCode: action.payload.region.currency_code
+      };
+    case "deleteCartItem":
+      return {
+        ...state,
+        cart: {
+          items: state.cart.items.filter(each => {
+            if(state.cart.items.indexOf(each) !== action.payload) return each
+          })
+        }
+      }
+    case "setMockedCart":
+      return {
+        ...state,
+        cart: {
+          items: [
+            ...state.cart.items,
+            action.payload
+          ]
+        },
+        currencyCode: action.payload.currency_code,
       };
     case "setOrder":
       return {
@@ -48,7 +69,7 @@ const reducer = (state, action) => {
   }
 };
 
-const client = createClient();
+// const client = createClient();
 
 export const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultStoreContext);
@@ -58,29 +79,29 @@ export const StoreProvider = ({ children }) => {
     stateCartId.current = state.cart.id;
   }, [state.cart]);
 
-  useEffect(() => {
-    let cartId;
-    if (localStorage) {
-      cartId = localStorage.getItem("cart_id");
-    }
+  // useEffect(() => {
+  //   let cartId;
+  //   if (localStorage) {
+  //     cartId = localStorage.getItem("cart_id");
+  //   }
 
-    if (cartId) {
-      client.carts.retrieve(cartId).then(({ data }) => {
-        dispatch({ type: "setCart", payload: data.cart });
-      });
-    } else {
-      client.carts.create(cartId).then(({ data }) => {
-        dispatch({ type: "setCart", payload: data.cart });
-        if (localStorage) {
-          localStorage.setItem("cart_id", data.cart.id);
-        }
-      });
-    }
+  //   if (cartId) {
+  //     client.carts.retrieve(cartId).then(({ data }) => {
+  //       dispatch({ type: "setCart", payload: data.cart });
+  //     });
+  //   } else {
+  //     client.carts.create(cartId).then(({ data }) => {
+  //       dispatch({ type: "setCart", payload: data.cart });
+  //       if (localStorage) {
+  //         localStorage.setItem("cart_id", data.cart.id);
+  //       }
+  //     });
+  //   }
 
-    client.products.list().then((data) => {
-      dispatch({ type: "setProducts", payload: data.products });
-    });
-  }, []);
+  //   client.products.list().then((data) => {
+  //     dispatch({ type: "setProducts", payload: data.products });
+  //   });
+  // }, []);
 
   const createCart = () => {
     if (localStorage) {
@@ -102,15 +123,35 @@ export const StoreProvider = ({ children }) => {
       });
   };
 
-  const addVariantToCart = async ({ variantId, quantity }) => {
-    client.carts.lineItems
-      .create(state.cart.id, {
-        variant_id: variantId,
-        quantity: quantity,
-      })
-      .then(({ data }) => {
-        dispatch({ type: "setCart", payload: data.cart });
-      });
+  const deleteCartItem = async({index}) => {
+    await dispatch({type: "deleteCartItem", payload: index})
+    console.log(state.cart)
+  }
+
+  const addVariantToCart = async ({options, product}) => {
+    const products = await getMockProducts('testing-products')
+    const [selectedProduct] = products.filter(each => {
+      if(each.id == product.id) return each
+    })
+    const cart = {items: [
+      options,
+    ]}
+    cart.title = product.title
+    const [price] = product.variants.filter(variant => {
+      if(variant.prices[0].variant_id == options.variantId) return variant
+    })    
+    cart.formated_price = formatPrice(price.prices[0].amount, price.prices[0].currency_code)
+    cart.price = price.prices[0].amount
+    cart.currency_code = selectedProduct.variants[0].prices[0].currency_code
+    await dispatch({ type: "setMockedCart", payload: cart });
+    // client.carts.lineItems
+    //   .create(state.cart.id, {
+    //     variant_id: variantId,
+    //     quantity: quantity,
+    //   })
+    //   .then(({ data }) => {
+    //     dispatch({ type: "setCart", payload: data.cart });
+    //   });
   };
 
   const removeLineItem = async (lineId) => {
@@ -197,6 +238,7 @@ export const StoreProvider = ({ children }) => {
       value={{
         ...state,
         addVariantToCart,
+        deleteCartItem,
         createCart,
         removeLineItem,
         updateLineItem,

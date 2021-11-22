@@ -24,7 +24,6 @@ const Product = ({ product }) => {
     if (product) {
       setOptions(resetOptions(product));
     }
-    getNavHeight()
   }, [product]);
 
   // const handleQtyChange = (action) => {
@@ -50,16 +49,8 @@ const Product = ({ product }) => {
   //   }
   // };
 
-  const getNavHeight = () => {
-    // const height = document.querySelector('.nav-bar_container__ksV_l').clientHeight
-    // return height
-  }
-
   const handleAddToBag = () => {
-    addVariantToCart({
-      variantId: options.variantId,
-      quantity: options.quantity,
-    });
+    addVariantToCart({options,product});
     if (product) setOptions(resetOptions(product));
   };
 
