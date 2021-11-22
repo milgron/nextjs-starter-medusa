@@ -15,8 +15,8 @@ const Product = ({ product }) => {
   });
 
   const [isMessageActive, setIsMessageActive] = useState(false)
-
   const [isDetailsOpen,setIsDetailsOpen] = useState(false)
+  const [selectionMade,setSelectionMade] = useState(false)
 
   const handleDetailsClick = () => {
     return setIsDetailsOpen(!isDetailsOpen)
@@ -28,29 +28,6 @@ const Product = ({ product }) => {
     }
   }, [product]);
 
-  // const handleQtyChange = (action) => {
-  //   if (action === "inc") {
-  //     if (
-  //       options.quantity <
-  //       product.variants.find(({ id }) => id === options.variantId)
-  //         .inventory_quantity
-  //     )
-  //       setOptions({
-  //         variantId: options.variantId,
-  //         quantity: options.quantity + 1,
-  //         size: options.size,
-  //       });
-  //   }
-  //   if (action === "dec") {
-  //     if (options.quantity > 1)
-  //       setOptions({
-  //         variantId: options.variantId,
-  //         quantity: options.quantity - 1,
-  //         size: options.size,
-  //       });
-  //   }
-  // };
-
   const handleAddToBag = async () => {
     addVariantToCart({options,product});
     if (product) setOptions(resetOptions(product));
@@ -61,14 +38,16 @@ const Product = ({ product }) => {
   };
 
   const handleVariantSelection = (event) => {
+    setSelectionMade(true)
     const [variant] = product.variants.filter(each => {
       if(each.title == event.target.value) return each
     })
+    const stock = variant.prices[0].amount
     setOptions({
       variantId: variant.prices[0].variant_id,
       quantity: options.quantity,
       size: variant.title,
-      stock: variant.inventory_quantity
+      stock: stock
     })
   }
 
@@ -88,8 +67,13 @@ const Product = ({ product }) => {
       </figure>
       <div className={styles.info}>
         <div className={styles.details}>
-          <div className={styles.title}>
-            <h1>{product.title}</h1>
+          <div className={styles.titleWrapper}>
+            <h1 className={styles.title}>{product.title}</h1>
+            <div className={styles.messageContainer}>
+              <div className={!isMessageActive ? styles.messageWrapper : `${styles.messageWrapper} ${styles.active}`}>
+                <span> added to bag 🛍️</span>
+              </div>
+            </div>
           </div>
           <div className={styles.priceWrapper}>
             <p className="price"><span className={styles.fromPrice}>from </span>{product.lower_price}</p>
@@ -102,36 +86,38 @@ const Product = ({ product }) => {
               className={styles.select} 
               onChange={(e) =>
                 handleVariantSelection(e)
-              }>
-              <option disabled>{product.options[0].title}</option>
+              }
+              defaultValue={'DEFAULT'} 
+              >
+              <option value="DEFAULT" disabled>{product.options[0].title}</option>
               {product.variants
                 .slice(0)
                 .reverse()
                 .map((v) => {
-                  return (
-                    <option key={v.id}> {v.title} </option>
-                  );
+                  return v.inventory_quantity !== 0
+                    ? <option key={v.id}> {v.title} </option>
+                    : <option key={v.id} disabled> {v.title} (sold out)</option>
                 })}
             </select>
           </div>
-          <button className={styles.addbtn} onClick={() => handleAddToBag()}>
-            Add to cart
+          <button className={selectionMade ? styles.addbtn : `${styles.addbtn} ${styles.notAllowed}`} onClick={() => handleAddToBag()}>
+            {selectionMade
+            ? 'Add to cart'
+            : 'Please select an option'
+            }
           </button>
-          <div className={styles.productDetailsWrapper}>
+          <div className={selectionMade ? styles.productDetailsWrapper : 'hidden'}>
             <div className={!isDetailsOpen ? styles.seeDetailsWrapper : `${styles.seeDetailsWrapper} ${styles.active}`} onClick={() => handleDetailsClick()}>
               <span>Product details</span>
               <span><BiChevronDown size="20px"/></span>
             </div>
             <div className={!isDetailsOpen ? styles.informationWrapper : `${styles.informationWrapper} ${styles.active}`}>
-              {options.stock > 0
+              {options.stock !== 0
               ? <p>Available stock: {options.stock}</p>
               : <p>Stock sold out :(</p>
               }
             </div>
           </div>
-        </div>
-        <div className={!isMessageActive ? styles.messageWrapper : `${styles.messageWrapper} ${styles.active}`}>
-          <span><strong>{product.title}</strong> added to bag 🛍️</span>
         </div>
       </div>
     </div>
