@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
+  --main-blue: #0A3149;
   --logo-color-1000: #30363d;
   --logo-color-900: #454b54;
   --logo-color-400: #a3b1c7;
