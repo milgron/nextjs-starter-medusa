@@ -1,19 +1,16 @@
 .container {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-}
-
-.image {
-  width: 60%;
-  height: 100vh;
-  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  color: var(--main-blue);
+  height: calc(100vh - 60px);
 }
 
 .placeholder {
   height: 100%;
   width: 100%;
   background: var(--bg);
+  border-radius: 5px;
 }
 
 .placeholder > div {
@@ -25,7 +22,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem 3rem;
+  align-items: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.details {
+  width: 100%;
 }
 
 .return {
@@ -75,6 +78,32 @@
   margin: 2rem 0;
 }
 
+.title {
+  @apply text-xl my-2 font-bold;
+}
+
+.priceWrapper {
+  @apply my-2;
+}
+
+.fromPrice {
+  @apply text-sm;
+}
+
+.price {
+  @apply text-3xl;
+} 
+
+.select {
+  border: 1px solid var(--main-blue);
+  border-radius: 5px;
+  @apply bg-white w-full py-2 pr-4;
+}
+
+.select::-ms-expand {
+  margin-right: 10px;
+}
+
 .selection p {
   margin: 0;
   margin-bottom: 0.7rem;
@@ -99,13 +128,11 @@
   min-height: 3rem;
   min-width: 3rem;
   padding: 0.5rem 1.25rem;
-  align-self: center;
-  display: inline-flex;
-  align-items: center;
-  background: var(--logo-color-900);
+  width:100%;
+  background: var(--main-blue);
   color: white;
-  border-radius: 4px;
-  transition: background 0.2s ease-in;
+  border-radius: 5px;
+  transition: all 500ms ease-in-out;
   font-weight: 500;
   border: none;
 }
@@ -115,7 +142,9 @@
 }
 
 .addbtn:hover {
-  background: var(--logo-color-1000);
+  background: #0f3750;
+  box-shadow: 3px 3px 10px rgb(12, 21, 58, 0.75);
+  transition: all 500ms ease-in-out;
 }
 
 .tabs {
@@ -131,6 +160,51 @@
     border-bottom: 1px solid var(--logo-color-400); 
 }
 
+.productDetailsWrapper {
+  overflow: hidden;
+  @apply mt-6;
+}
+
+.seeDetailsWrapper {
+  z-index: 2;
+  position: relative;
+  transition: all 500ms ease-in-out;
+  padding-bottom: 5px;
+
+  @apply flex w-full justify-between px-4 cursor-pointer bg-white;
+}
+
+.seeDetailsWrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  height: 2px;
+  background: #0f3750;
+  left:0;
+  right: 0;
+  width: 0%;
+  transition: all 750ms ease-in-out;
+}
+
+.active.seeDetailsWrapper::after {
+  transition: all 1000ms ease-in-out;
+  width: 100%;
+}
+
+.informationWrapper {
+  z-index: 1;
+  transform: translateY(-200%);
+  transition: transform 500ms ease-in-out;
+  border: 1px solid #0f3750;
+  border-radius: 5px;
+  @apply p-4 my-4;
+}
+
+.informationWrapper.active {
+  transition: transform 500ms ease-in-out;
+  transform: translateY(0);
+}
+
 @media (max-width: 876px) {
     .container {
       flex-direction: column;
@@ -141,12 +215,23 @@
         width: 100%
     }
 
-    .image {
-        height: 50vh;
-    }
-
     .info {
         margin-top: 1rem;
         padding: 0 22px;
+    }
+  }
+
+  @media screen and (min-width: 640px) {
+    .info {
+      width: 75%;
+    }
+  }
+
+  @media screen and (min-width: 876px) {
+    .container {
+      grid-template-columns: 1fr 1fr;
+    }
+    .info {
+      width: 50%;
     }
   }

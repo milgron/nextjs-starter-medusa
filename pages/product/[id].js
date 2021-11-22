@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image"
-import { BiShoppingBag } from "react-icons/bi";
+import { BiChevronDown } from "react-icons/bi";
 import StoreContext from "../../context/store-context";
 import { formatPrice, getMockProducts, resetOptions } from "../../utils/helper-functions";
 import styles from "../../styles/product.module.css";
 import { createClient } from "../../utils/client";
-import { formatPrices } from "../../utils/prices";
 
 const Product = ({ product }) => {
   const { addVariantToCart, cart } = useContext(StoreContext);
@@ -15,34 +14,46 @@ const Product = ({ product }) => {
     size: "",
   });
 
+  const [isDetailsOpen,setIsDetailsOpen] = useState(false)
+
+  const handleDetailsClick = () => {
+    return setIsDetailsOpen(!isDetailsOpen)
+  }
+
   useEffect(() => {
     if (product) {
       setOptions(resetOptions(product));
     }
+    getNavHeight()
   }, [product]);
 
-  const handleQtyChange = (action) => {
-    if (action === "inc") {
-      if (
-        options.quantity <
-        product.variants.find(({ id }) => id === options.variantId)
-          .inventory_quantity
-      )
-        setOptions({
-          variantId: options.variantId,
-          quantity: options.quantity + 1,
-          size: options.size,
-        });
-    }
-    if (action === "dec") {
-      if (options.quantity > 1)
-        setOptions({
-          variantId: options.variantId,
-          quantity: options.quantity - 1,
-          size: options.size,
-        });
-    }
-  };
+  // const handleQtyChange = (action) => {
+  //   if (action === "inc") {
+  //     if (
+  //       options.quantity <
+  //       product.variants.find(({ id }) => id === options.variantId)
+  //         .inventory_quantity
+  //     )
+  //       setOptions({
+  //         variantId: options.variantId,
+  //         quantity: options.quantity + 1,
+  //         size: options.size,
+  //       });
+  //   }
+  //   if (action === "dec") {
+  //     if (options.quantity > 1)
+  //       setOptions({
+  //         variantId: options.variantId,
+  //         quantity: options.quantity - 1,
+  //         size: options.size,
+  //       });
+  //   }
+  // };
+
+  const getNavHeight = () => {
+    // const height = document.querySelector('.nav-bar_container__ksV_l').clientHeight
+    // return height
+  }
 
   const handleAddToBag = () => {
     addVariantToCart({
@@ -52,13 +63,24 @@ const Product = ({ product }) => {
     if (product) setOptions(resetOptions(product));
   };
 
+  const handleVariantSelection = (event) => {
+    const [variant] = product.variants.filter(each => {
+      if(each.title == event.target.value) return each
+    })
+    setOptions({
+      variantId: variant.prices[0].variant_id,
+      quantity: options.quantity,
+      size: variant.title,
+      stock: variant.inventory_quantity
+    })
+  }
+
   return (
     <div className={styles.container}>
       <figure className={styles.image}>
         <div className={styles.placeholder}>
           <Image
-            objectFit="cover"
-            height="100%"
+            height="250px"
             width="100%"
             priority={true}
             loading="eager"
@@ -68,67 +90,46 @@ const Product = ({ product }) => {
         </div>
       </figure>
       <div className={styles.info}>
-        <span />
         <div className={styles.details}>
-          <div className="title">
+          <div className={styles.title}>
             <h1>{product.title}</h1>
           </div>
-          <p className="price">{formatPrices(cart, product.variants[0])}</p>
+          <div className={styles.priceWrapper}>
+            <p className="price"><span className={styles.fromPrice}>from </span>{product.lower_price}</p>
+          </div>
+          <div className={styles.descriptionWrapper}>
+            <p>{product.description}</p>
+          </div>
           <div className={styles.selection}>
-            <p>Select Size</p>
-            <div className="selectors">
+            <select 
+              className={styles.select} 
+              onChange={(e) =>
+                handleVariantSelection(e)
+              }>
+              <option disabled>{product.options[0].title}</option>
               {product.variants
                 .slice(0)
                 .reverse()
                 .map((v) => {
                   return (
-                    <button
-                      key={v.id}
-                      className={`${styles.sizebtn} ${
-                        v.title === options.size ? styles.selected : null
-                      }`}
-                      onClick={() =>
-                        setOptions({
-                          variantId: v.id,
-                          quantity: options.quantity,
-                          size: v.title,
-                        })
-                      }
-                    >
-                      {v.title}
-                    </button>
+                    <option key={v.id}> {v.title} </option>
                   );
                 })}
-            </div>
-          </div>
-          <div className={styles.selection}>
-            <p>Select Quantity</p>
-            <div className={styles.qty}>
-              <button
-                className={styles.qtybtn}
-                onClick={() => handleQtyChange("dec")}
-              >
-                -
-              </button>
-              <span className={styles.ticker}>{options.quantity}</span>
-              <button
-                className={styles.qtybtn}
-                onClick={() => handleQtyChange("inc")}
-              >
-                +
-              </button>
-            </div>
+            </select>
           </div>
           <button className={styles.addbtn} onClick={() => handleAddToBag()}>
-            <span>Add to bag</span>
-            <BiShoppingBag />
+            Add to cart
           </button>
-          <div className={styles.tabs}>
-            <div className="tab-titles">
-              <button className={styles.tabtitle}>Product Description</button>
+          <div className={styles.productDetailsWrapper}>
+            <div className={!isDetailsOpen ? styles.seeDetailsWrapper : `${styles.seeDetailsWrapper} ${styles.active}`} onClick={() => handleDetailsClick()}>
+              <span>Product details</span>
+              <span><BiChevronDown size="20px"/></span>
             </div>
-            <div className="tab-content">
-              <p>{product.description}</p>
+            <div className={!isDetailsOpen ? styles.informationWrapper : `${styles.informationWrapper} ${styles.active}`}>
+              {options.stock > 0
+              ? <p>Available stock: {options.stock}</p>
+              : <p>Stock sold out :(</p>
+              }
             </div>
           </div>
         </div>
@@ -146,7 +147,6 @@ export async function getStaticPaths() {
   // const products = data.products;
 
   const products = getMockProducts('testing-products')
-  console.log(products)
   // Get the paths we want to pre-render based on the products
   const paths = products.map((product) => ({
     params: { id: product.id },
