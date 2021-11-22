@@ -59,6 +59,10 @@
   @apply text-red-500 cursor-pointer;
 }
 
+.closeX {
+  @apply text-red-400;
+}
+
 .active {
   -webkit-transform: translateX(-460px);
   -ms-transform: translateX(-460px);

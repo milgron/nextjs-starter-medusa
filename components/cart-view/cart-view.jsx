@@ -8,7 +8,7 @@ import styles from "../../styles/cart-view.module.css";
 import { quantity, sum, formatPrice, getFixedPrice } from "../../utils/helper-functions";
 import { formatPrices } from "../../utils/prices";
 import MedusaLogo from "../../public/medusa-logo.svg"
-import { BiTrash } from "react-icons/bi";
+import { BiTrash, BiX } from "react-icons/bi";
 
 const CartView = () => {
   const { cartView, updateCartViewDisplay, updateCheckoutStep } =
@@ -49,7 +49,7 @@ const CartView = () => {
           className={styles.closebtn}
           onClick={() => updateCartViewDisplay()}
         >
-          X
+          <BiX size="20px" className={styles.closeX}/>
         </button>
       </div>
       <div className={styles.overview}>
